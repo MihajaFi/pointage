@@ -1,16 +1,28 @@
 package school.hei.pointage;
 
+import lombok.*;
+
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 public class Calendar {
-    private List<Date> holidays;
+    private List<LocalDate> holidays;
+    private List<WorkDay> workDays;
 
-    public Calendar(List<Date> holidays) {
+    public Calendar(List<LocalDate> holidays) {
         this.holidays = holidays;
     }
 
-    public boolean isHoliday(Date date) {
+    public boolean isHoliday(LocalDate date) {
         return holidays.contains(date);
+    }
+
+    public void addWorkDay(WorkDay workDay) {
+        workDays.add(workDay);
+    }
+
+    public List<WorkDay> getWorkDays() {
+        return workDays;
     }
 }
